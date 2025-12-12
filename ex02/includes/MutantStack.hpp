@@ -13,7 +13,6 @@ public:
 	typedef typename stack::container_type container;
 	typedef typename container::iterator iterator;
 
-	// Constructors
 	MutantStack() : stack()
 	{
 		std::cout << "Default Constructor called" << std::endl;
@@ -24,13 +23,11 @@ public:
 		std::cout << "Copy Constructor called" << std::endl;
 	}
 
-	// Deconstuctor
 	~MutantStack()
 	{
 		std::cout << "Deconstuctor called" << std::endl;
 	}
 
-	// Overloaded opperators
 	stack &operator=(const stack &src)
 	{
 		if (*this != src)
@@ -38,13 +35,11 @@ public:
 		return (*this);
 	}
 
-	// begin iterator
 	iterator begin()
 	{
 		return (stack::c.begin());
 	}
 
-	// end iterator
 	iterator end()
 	{
 		return (stack::c.end());
