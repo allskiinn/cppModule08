@@ -2,52 +2,49 @@
 # define SPAN_HPP
 
 #include <iostream>
-#include <algorithm>
 #include <exception>
+#include <algorithm>
 #include <vector>
 #include <iterator>
-#include <climits>
+#include <cstdlib>
+#include <time.h>
 
 
 class Span
 {
 	private:
-		std::vector<int> numbers;
-		unsigned int size;
+		std::vector<int> items;
+		unsigned int N;
 		unsigned int pos;
-
 	public:
-		Span(unsigned int N);
-		Span(const Span &src);
-
+		Span(unsigned int size);
+		Span( const Span &other);
+		Span &operator=(const Span& other);
 		~Span();
-
-		Span &operator=(const Span &src);
 
 		void addNumber(int number);
 		void addNumber(unsigned int numbers, time_t seed);
-		unsigned int shortestSpan()const;
-		unsigned int longestSpan()const;
+		unsigned int getN() const;
+		unsigned int getPos() const;
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
+		void allItems();
 
-		unsigned int getSize()const;
-		unsigned int getPos()const;
-
-	class	VectorInvalidException : public std::exception
-	{
+	class VectorInvalid : public std::exception {
 		public:
-			virtual const char	*what() const throw();
+			virtual const char* what() const throw(); 
 	};
 
-	class	ArrayFullException : public std::exception
+	class	VectorFull: public std::exception
 	{
 		public:
-			virtual const char	*what() const throw();
+			virtual const char* what() const throw();
 	};
 
-	class	ComparisonInvalidException : public std::exception
+	class	ComparisonInvalid: public std::exception
 	{
 		public:
-			virtual const char	*what() const throw();
+			virtual const char* what() const throw();
 	};
 };
 
