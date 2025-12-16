@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stack>
 
-template <class T>
+template <typename T>
 
 class MutantStack : public std::stack<T>
 {

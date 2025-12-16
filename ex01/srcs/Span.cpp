@@ -125,5 +125,4 @@ void Span::allItems() {
 	{
 		std::cout << *i << std::endl;
 	}
-	
 }
