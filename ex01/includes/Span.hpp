@@ -7,7 +7,7 @@
 #include <vector>
 #include <iterator>
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
 
 
 class Span
@@ -23,7 +23,7 @@ class Span
 		~Span();
 
 		void addNumber(int number);
-		void addNumber(unsigned int numbers, time_t seed);
+		void addNumber(std::vector<int> list);
 		unsigned int getN() const;
 		unsigned int getPos() const;
 		unsigned int shortestSpan() const;

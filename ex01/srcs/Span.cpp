@@ -41,21 +41,14 @@ void	Span::addNumber(int number)
 	// std::cout << "added " << number << std::endl;
 }
 
-void	Span::addNumber(unsigned int numbers, time_t seed)
+void Span::addNumber(std::vector<int> list)
 {
-	srand(seed);
-	for (size_t i = 0; i < numbers; i++)
-	{
-		try
-		{
-			addNumber(rand() % 10000);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
+    unsigned int distance = std::distance(list.begin, list.end);
 
+    if (this->items.size() + distance > this->N)
+        throw std::runtime_error("Span is full");
+
+    this->items.insert(this->items.end(), list.begin, list.end);
 }
 
 unsigned int	Span::shortestSpan(void) const

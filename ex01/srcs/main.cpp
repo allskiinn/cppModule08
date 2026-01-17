@@ -2,7 +2,7 @@
 
 int main()
 {
-	{
+	/* {
 		Span a = Span(5);
 		try
 		{
@@ -19,11 +19,15 @@ int main()
 		{
 			std::cerr << std::endl << e.what() << std::endl;
 		}
-	}	
+	}	 */
 	std::cout << std::endl << "---------------------------------------------------------------" << std::endl << std::endl;
 	{
+		std::srand(std::time(NULL));
+		std::vector<int> numbers;
+		for (int i = 0; i < 10000; i++)
+			numbers.push_back(std::rand());
 		Span a = Span(10000);
-		a.addNumber(10000, time(NULL));
+		a.addNumber(numbers);
 		std::cout << "shortest span is " << a.shortestSpan() << std::endl;
 		std::cout << "longest span is " << a.longestSpan() << std::endl << std::endl;
 	}
