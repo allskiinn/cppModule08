@@ -16,6 +16,7 @@ class Span
 		std::vector<int> items;
 		unsigned int N;
 		unsigned int pos;
+		Span();
 	public:
 		Span(unsigned int size);
 		Span( const Span &other);

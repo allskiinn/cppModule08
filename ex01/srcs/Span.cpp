@@ -43,12 +43,11 @@ void	Span::addNumber(int number)
 
 void Span::addNumber(std::vector<int> list)
 {
-    unsigned int distance = std::distance(list.begin, list.end);
+    unsigned int distance = std::distance(list.begin(), list.end());
 
     if (this->items.size() + distance > this->N)
-        throw std::runtime_error("Span is full");
-
-    this->items.insert(this->items.end(), list.begin, list.end);
+		throw Span::VectorFull();
+    this->items.insert(this->items.end(), list.begin(), list.end());
 }
 
 unsigned int	Span::shortestSpan(void) const
